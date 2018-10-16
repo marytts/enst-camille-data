@@ -1,5 +1,6 @@
 plugins {
     id 'org.m2ci.msp.flaml' version '0.3.0'
+    id 'ivy-publish'
 }
 
 group 'de.dfki.mary'
