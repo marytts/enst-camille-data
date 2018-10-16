@@ -5,6 +5,7 @@ plugins {
 
 group 'de.dfki.mary'
 version '0.2-SNAPSHOT'
+description 'ENST Camille Voice Data'
 
 generateFlac {
     srcFiles = fileTree('audio').include('*.wav')
@@ -27,6 +28,16 @@ publishing {
             artifact packageYaml
             artifact generateFlac.flacFile, {
                 builtBy generateFlac
+            }
+            descriptor {
+                license {
+                    name = 'Creative Commons Attribution-ShareAlike 4.0 International'
+                    url = 'https://creativecommons.org/licenses/by-sa/4.0/'
+                }
+                description {
+                    text = project.description
+                    homepage = 'https://github.com/marytts/enst-camille-data'
+                }
             }
         }
     }
