@@ -20,3 +20,20 @@ artifacts {
         builtBy generateFlac
     }
 }
+
+publishing {
+    publications {
+        flaml(IvyPublication) {
+            artifact packageYaml
+            artifact generateFlac.flacFile, {
+                builtBy generateFlac
+            }
+        }
+    }
+    repositories {
+        ivy {
+            name 'projectLocal'
+            url "$buildDir/repo"
+        }
+    }
+}
