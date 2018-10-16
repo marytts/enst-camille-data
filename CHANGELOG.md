@@ -6,6 +6,7 @@ ENST Camille Voice Data
 
 ### Added
 
+- build logic using Gradle v4.10.2 and FLAML convention
 - YAML file to store all metadata
 
 ### Changed
@@ -15,7 +16,7 @@ ENST Camille Voice Data
 
 ### Fixed
 
-- Alignment bug shifting all phonetic boundaries
+- alignment bug shifting all phonetic boundaries
 
 [v0.1] (2014-02-06)
 -------------------
