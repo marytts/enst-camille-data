@@ -1,0 +1,2 @@
+rootProject.name = 'enst-camille-data'
+enableFeaturePreview('STABLE_PUBLISHING')

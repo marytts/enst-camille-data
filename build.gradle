@@ -1,0 +1,50 @@
+plugins {
+    id 'org.m2ci.msp.flaml' version '0.3.0'
+    id 'ivy-publish'
+}
+
+group 'de.dfki.mary'
+version '0.2-SNAPSHOT'
+description 'ENST Camille Voice Data'
+
+generateFlac {
+    srcFiles = fileTree('audio').include('*.wav')
+}
+
+task packageYaml(type: Zip) {
+    from flaml.yamlFile
+}
+
+artifacts {
+    'default' packageYaml
+    'default' generateFlac.flacFile, {
+        builtBy generateFlac
+    }
+}
+
+publishing {
+    publications {
+        flaml(IvyPublication) {
+            artifact packageYaml
+            artifact generateFlac.flacFile, {
+                builtBy generateFlac
+            }
+            descriptor {
+                license {
+                    name = 'Creative Commons Attribution-ShareAlike 4.0 International'
+                    url = 'https://creativecommons.org/licenses/by-sa/4.0/'
+                }
+                description {
+                    text = project.description
+                    homepage = 'https://github.com/marytts/enst-camille-data'
+                }
+            }
+        }
+    }
+    repositories {
+        ivy {
+            name 'projectLocal'
+            url "$buildDir/repo"
+        }
+    }
+}
