@@ -43,34 +43,19 @@ For example,
   - { lab: '@', dur: 0.115 }
 ```
 
-## Downloading the corpus
+## Extracting the corpus
 
-### Git and git-annex
+### Prerequisites
 
-The best way of downloading the data is to use [**Git**](http://git-scm.com/).
-To make the most of the features offered by GitHub, you should [**fork**](https://github.com/marytts/enst-camille-data/fork) this repository to your own GitHub account, then use your favorite Git client to **clone** that repo to your local machine.
-Please refer to [GitHub Help](https://help.github.com/) and [the Web](http://google.com/) as required.
+Java 8 (or later) and [SoX] must be installed.
 
-Because Git is not designed to efficiently handle large amounts of binary data, specifically the audio files in the corpus, we *manage* those files using [**git-annex**](http://git-annex.branchable.com/).
-This means that the actual audio files are not stored in this repo, but we nevertheless leverage the benefits of distributed revision control by tracking which **Git remotes** *do* have copies of the audio files.
-However, git-annex also performs poorly with large *numbers* of files, so the `.flac` files have been packaged into [tarballs](http://en.wikipedia.org/wiki/Tar_%28computing%29), one per speaking style.
-(Use `tar` or your favorite file archive utility to unpack.)
+### Assembling the data
 
-**You will need git-annex** to handle this elegantly.
+The data processing is delegated to [Gradle] and the [FLAML plugin].
 
-Once you've cloned the repository, you can use the command `git annex get audio.tar` to get `audio.tar`, i.e. the `tar` file containing the audio recordings.
+Run `./gradlew unpackData extractTextFiles extractLabFiles extractWavFiles` to download and extract all data. See the [FLAML plugin] documentation for details.
 
-### Alternative: Git-less download
-
-If all of that stuff about Git and version control is just too technical, you can still download the corpus in a few simple steps.
-
-1. Download the most recent version (the *master branch*) of this repository as a `.zip` file by clicking on the "Download ZIP" button, or the following URL:
-
-    <https://github.com/marytts/enst-camille-data/archive/master.zip>
-
-2. Download the audio data directly from one of the web remotes, such as
-
-    <http://mary.dfki.de/download/enst-camille-data/audio.tar>
+Run `./gradlew assemble` to prepare the data for distribution.
 
 ## License
 
@@ -82,6 +67,9 @@ See the `LICENSE.md` file for details.
 [Creative Commons Attribution-ShareAlike 4.0 International License]: http://creativecommons.org/licenses/by-sa/4.0/
 [FestVox]: http://festvox.org/
 [FLAC]: https://xiph.org/flac/
+[FLAML plugin]: https://github.com/m2ci-msp/gradle-flaml-plugin
+[Gradle]: https://gradle.org/
 [Praat]: http://praat.org/
 [SAMPA]: http://www.phon.ucl.ac.uk/home/sampa/
+[SoX]: http://sox.sourceforge.net/
 [YAML]: http://yaml.org/
