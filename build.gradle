@@ -1,0 +1,7 @@
+plugins {
+    id 'org.m2ci.msp.flaml' version '0.3.0'
+}
+
+generateFlac {
+    srcFiles = fileTree('audio').include('*.wav')
+}
