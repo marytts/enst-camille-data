@@ -31,8 +31,8 @@ task unpackData(type: Copy) {
     rename { "${project.name}.flac" }
 }
 
-generateFlac {
-    srcFiles = fileTree('audio').include('*.wav')
+flaml {
+    flacFile = file("$buildDir/${project.name}.flac")
 }
 
 task packageYaml(type: Zip) {
