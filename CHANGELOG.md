@@ -12,6 +12,7 @@ ENST Camille Voice Data
 ### Changed
 
 - upgraded CC-BY-SA license to v4.0
+- resolve data from GitHub, drop reliance on annexed assets
 - [all changes since v0.1]
 
 ### Fixed
