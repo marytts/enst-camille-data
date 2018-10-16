@@ -6,19 +6,19 @@ A French speech corpus designed for synthesis, recorded in 2013 at Télécom Par
 
 ### Audio
 
-The audio data is provided in the losslessly compressed [FLAC](https://xiph.org/flac/) format, which can be played by a [myriad of software](https://xiph.org/flac/links.html#software), including [Praat](http://praat.org/).
+The audio data is provided in the losslessly compressed [FLAC] format, which can be played by a [myriad of software](https://xiph.org/flac/links.html#software), including [Praat].
 The speaker was recorded at a 44.1 kHz sampling rate, 16 bits per sample, in mono.
 No filters of any sort have been applied to this raw data.
 
 ### Phonetic segmentation
 
-Annotations are provided as a single [YAML](http://yaml.org/) file. It contains a list of utterances, each of which consists of
+Annotations are provided as a single [YAML] file. It contains a list of utterances, each of which consists of
 - a prompt code (file basename),
 - the utterance text,
 - the recording date,
 - utterance start and end times (in seconds) in the FLAC file,
-- the phonetic segments (obtained using the eHMM tool from [Festvox](http://festvox.org/) 2.1), each of which has
-  - a label (based on [SAMPA](https://www.phon.ucl.ac.uk/home/sampa/), `_` denotes silence), and
+- the phonetic segments (obtained using the eHMM tool from [FestVox] 2.1), each of which has
+  - a label (based on [SAMPA], `_` denotes silence), and
   - its end time (in seconds), relative to that utterance's start time
 
 For example,
@@ -76,5 +76,12 @@ If all of that stuff about Git and version control is just too technical, you ca
 
 [![Creative Commons License](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License].
 See the `LICENSE.md` file for details.
+
+[Creative Commons Attribution-ShareAlike 4.0 International License]: http://creativecommons.org/licenses/by-sa/4.0/
+[FestVox]: http://festvox.org/
+[FLAC]: https://xiph.org/flac/
+[Praat]: http://praat.org/
+[SAMPA]: http://www.phon.ucl.ac.uk/home/sampa/
+[YAML]: http://yaml.org/
