@@ -9,3 +9,14 @@ version '0.2-SNAPSHOT'
 generateFlac {
     srcFiles = fileTree('audio').include('*.wav')
 }
+
+task packageYaml(type: Zip) {
+    from flaml.yamlFile
+}
+
+artifacts {
+    'default' packageYaml
+    'default' generateFlac.flacFile, {
+        builtBy generateFlac
+    }
+}
