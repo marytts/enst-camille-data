@@ -1,2 +1,2 @@
-# manage EOL encoding
 * text=auto
+*.bat text eol=crlf
