@@ -12,13 +12,36 @@ No filters of any sort have been applied to this raw data.
 
 ### Phonetic segmentation
 
-Phonetic labels, automatically obtained using forced alignment using the eHMM tool from [Festvox](http://festvox.org/) 2.1, are provided as Xwaves `.lab` files;
-each line (after the header) has the fields
+Annotations are provided as a single [YAML](http://yaml.org/) file. It contains a list of utterances, each of which consists of
+- a prompt code (file basename),
+- the utterance text,
+- the recording date,
+- utterance start and end times (in seconds) in the FLAC file,
+- the phonetic segments (obtained using the eHMM tool from [Festvox](http://festvox.org/) 2.1), each of which has
+  - a label (based on [SAMPA](https://www.phon.ucl.ac.uk/home/sampa/), `_` denotes silence), and
+  - its end time (in seconds), relative to that utterance's start time
 
-    [ENDTIME] [NUMBER] [LABEL]
-
-where `ENDTIME` is in seconds, `NUMBER` has no significance, and `LABEL` uses a variant of the [SAMPA](http://www.phon.ucl.ac.uk/home/sampa/) phonetic alphabet.
-(These files can also be opened in Praat using the command `Read IntervalTier from Xwaves...`.)
+For example,
+```yaml
+- prompt: text_0366
+  text: les alpinistes installent un bivouac au pied de la montagne .
+  date: 2013-06-17T15:34:58Z
+  start: 3185.5455782309
+  end: 3191.814965986
+  segments:
+  - { lab: _, dur: 0.614969 }
+  - { lab: l, dur: 0.08 }
+  - { lab: e, dur: 0.135 }
+  - { lab: a, dur: 0.09 }
+  - { lab: l, dur: 0.045 }
+  - { lab: p, dur: 0.085 }
+  - { lab: i, dur: 0.075 }
+  - { lab: n, dur: 0.06 }
+  - { lab: i, dur: 0.105 }
+  - { lab: s, dur: 0.095 }
+  - { lab: t, dur: 0.065 }
+  - { lab: '@', dur: 0.115 }
+```
 
 ## Downloading the corpus
 
