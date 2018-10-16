@@ -7,8 +7,32 @@ group 'de.dfki.mary'
 version '0.2-SNAPSHOT'
 description 'ENST Camille Voice Data'
 
-generateFlac {
-    srcFiles = fileTree('audio').include('*.wav')
+repositories {
+    ivy {
+        url 'https://github.com/marytts'
+        layout 'pattern', {
+            ivy '[module]/releases/download/v[revision]/ivy-[revision].xml'
+            artifact '[module]/releases/download/v[revision]/[module]-[revision].[ext]'
+        }
+    }
+}
+
+configurations {
+    data
+}
+
+dependencies {
+    data group: 'de.dfki.mary', name: 'enst-camille-data', version: '0.2-rc1', ext: 'flac'
+}
+
+task unpackData(type: Copy) {
+    from files(configurations.data)
+    into buildDir
+    rename { "${project.name}.flac" }
+}
+
+flaml {
+    flacFile = file("$buildDir/${project.name}.flac")
 }
 
 task packageYaml(type: Zip) {
