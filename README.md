@@ -19,9 +19,10 @@ Annotations are provided as a single [YAML] file. It contains a list of utteranc
 - utterance start and end times (in seconds) in the FLAC file,
 - the phonetic segments (obtained using the eHMM tool from [FestVox] 2.1), each of which has
   - a label (based on [SAMPA], `_` denotes silence), and
-  - its end time (in seconds), relative to that utterance's start time
+  - its duration (in seconds)
 
 For example,
+
 ```yaml
 - prompt: text_0366
   text: les alpinistes installent un bivouac au pied de la montagne .
@@ -41,6 +42,7 @@ For example,
   - { lab: s, dur: 0.095 }
   - { lab: t, dur: 0.065 }
   - { lab: '@', dur: 0.115 }
+  # etc.
 ```
 
 ## Extracting the corpus
